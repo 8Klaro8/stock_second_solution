@@ -214,7 +214,7 @@ class Stock:
 
                 if new_inv_item_count > inv_item_count:
                     print(f"{inv_item_name:<20} +{diff}!")
-                if new_inv_item_count < inv_item_count and new_inv_item_count > 0:
+                if new_inv_item_count < inv_item_count and new_inv_item_count >= 0:
                     print(f"{inv_item_name:<20} {diff}")
 
     def read_file(self, file_to_read: str) -> list:
