@@ -53,7 +53,7 @@ class Penztar:
             count = product.get_count
             prod_id = product.get_id
 
-            if int(count) > 1:
+            if int(count) > 0:
                 print(f"{counter:>4}.) {name:>15}".ljust(30),f"{count} db, {price} Ft".ljust(15))
                 temp_data[counter] = name
                 counter += 1
@@ -116,12 +116,14 @@ class Penztar:
                     print("Type a valid number...")
                     continue
 
-                print(f"You bought {amount_to_buy}x from {chosen_item}"
-                      "\n======================================")
                 in_cart = False
                 for product in self.products:
                     product_name = product.get_name
+                    product_count = product.get_count
                     if product_name == chosen_item:
+                        if amount_to_buy > int(product_count):
+                            print("\nThere is not enough to buy...\n")
+                            break
                         new_product = copy.deepcopy(product)
                         new_product.set_purchased(amount_to_buy)
                         for cart_product in self.cart:
@@ -133,12 +135,15 @@ class Penztar:
                                 current_count = product.get_count
                                 new_count = current_count - amount_to_buy
                                 product.set_count(new_count)
-                                print(product.get_count)
+                                print(f"You bought {amount_to_buy}x from {chosen_item}"
+                                "\n======================================")
                         if not in_cart:
                             self.cart.append(new_product)
                             current_count = product.get_count
                             new_count = int(current_count) - amount_to_buy
                             product.set_count(new_count)
+                            print(f"You bought {amount_to_buy}x from {chosen_item}"
+                                "\n======================================")
                 
                 # print(list(map(lambda x: print(f"{x.get_name}, {x.get_count}x"), self.cart)))
                 input("Press a key to continue...")
