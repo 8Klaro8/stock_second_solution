@@ -198,8 +198,6 @@ class Stock:
         self.new_inventory = self.read_file(self.stock_file)
 
     def start_stock(self):
-        print(self.inventory)
-        print(self.new_inventory)
         self.compare()
 
     def compare(self):
@@ -236,10 +234,7 @@ class Stock:
                 count = row["count"]
                 storage["name"] = name
                 storage["count"] = count
-
                 data.append(storage)
-                # product = Product(name=name, count=count)
-                # storage.append(product)
         return data
 
 if __name__ == '__main__':
