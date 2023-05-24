@@ -1,0 +1,55 @@
+{
+    "tobacco": [
+        {
+            "name": "Betonszofi",
+            "price": 1940
+        },
+        {
+            "name": "Pirosmarlbi",
+            "price": 2040
+        }
+    ],
+    "softdrink": [
+        {
+            "name": "Hell szőlő",
+            "price": 279
+        },
+        {
+            "name": "kávé",
+            "price": 290
+        }
+
+    ],
+    "alcohol": [
+        {
+            "name": "kőbambi",
+            "price": 339
+        },
+        {
+            "name": "vodka",
+            "price": 1010
+        }
+
+    ],
+    "snack": [
+        {
+            "name": "mogyoró",
+            "price": 569
+        },
+        {
+            "name": "tuc",
+            "price": 399
+        }
+
+    ],
+    "misc": [
+        {
+            "name": "öngyújtó",
+            "price": 309
+        },
+        {
+            "name": "zsepi",
+            "price": 499
+        }
+    ]
+}
