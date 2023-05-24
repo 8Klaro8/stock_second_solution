@@ -201,7 +201,8 @@ class Stock:
         self.compare()
 
     def compare(self):
-        print()
+        print("\n=======================\nSTOCK"
+                "\n-----------------------")
         for i in range(len(self.inventory)):
             inv_item = self.inventory[i]
             new_inv_item = self.new_inventory[i]
@@ -220,6 +221,7 @@ class Stock:
                     print(f"{inv_item_name:<20} +{diff}!")
                 if new_inv_item_count < inv_item_count and new_inv_item_count >= 0:
                     print(f"{inv_item_name:<20} {diff}")
+        print("=======================")
 
     def read_file(self, file_to_read: str) -> list:
         data = []
