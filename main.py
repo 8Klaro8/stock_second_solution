@@ -41,7 +41,9 @@ class Penztar:
         # print(list(map(lambda x: print(x), self.products)))
 
     def show_available_items(self):
-        print("\nAvailable items:")
+        print("\n========================================="
+              "======\nAvailable items:\n------------------"
+              "-----------------------------")
         counter = 1
         temp_data = {}
         self.out_of_stock_products = 0
@@ -59,14 +61,15 @@ class Penztar:
                 self.out_of_stock_products += 1
                 print(f"{name:>22}", f"\t\tOUT OF STOCK".ljust(30))
             # counter += 1
-            
-        print(f"{(len(self.products) + 1) - self.out_of_stock_products}.) Quit")
+        my_space = " "
+        print(f"{(len(self.products) + 1) - self.out_of_stock_products:>4}.){my_space:<12}Quit")
 
         self._main_loop(temp_data)
 
     def _main_loop(self, temp_data):
         while True:
-            choice = input("Choose a product...")
+            choice = input("---------------------------------------"
+                           "--------\nChoose a product...")
             if not choice.isdigit():
                 print("Type number only...")
                 continue
@@ -103,7 +106,8 @@ class Penztar:
                   "\n======================")
             
             while True:
-                amount_to_buy = input("How much would you like to buy? ")
+                amount_to_buy = input("\n======================================\n"
+                                      "How much would you like to buy? ")
                 if not amount_to_buy.isdigit():
                     print("Type number only...")
                     continue
@@ -112,7 +116,8 @@ class Penztar:
                     print("Type a valid number...")
                     continue
 
-                print(f"You bought {amount_to_buy}x from {chosen_item}")
+                print(f"You bought {amount_to_buy}x from {chosen_item}"
+                      "\n======================================")
                 in_cart = False
                 for product in self.products:
                     product_name = product.get_name
@@ -136,6 +141,7 @@ class Penztar:
                             product.set_count(new_count)
                 
                 # print(list(map(lambda x: print(f"{x.get_name}, {x.get_count}x"), self.cart)))
+                input("Press a key to continue...")
                 self.show_available_items()
                 break
 
